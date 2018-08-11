@@ -1,0 +1,60 @@
+#%RAML 1.0  
+baseUri: https://mocksvc.mulesoft.com/mocks/3dc9a242-d0a5-43f7-bd0e-ea4776f25fc3 # 
+version: v1
+title: Honda Api
+/cars:
+  get:
+    queryParameters: 
+      cars:
+        required: false
+        enum:
+        - Accord
+        - Civic
+        - Odyssey 
+        
+    responses:
+      200:
+        body:  
+          application/json:
+            example:  
+              {
+                "cars":[
+                 {
+                    "carid": "1",
+                    "carname": "Odysssey",
+                    "color":"blue",
+                    "price":30000
+
+                
+                  },
+                  {
+                    "carid": 2,
+                    "carname": "Accord",
+                    "color":"black",
+                    "price":20000
+                  },
+                  {
+                    "carid": "3",
+                    "carname": "Civic",
+                    "color":"red",
+                    "price":20000
+                  }
+                  ]
+                  }
+      400:
+        body:
+          application/json:
+             example: |
+                {"message": "Car not found"} 
+                
+                
+                
+                
+  delete:
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                message: Car deleted               
+                      
